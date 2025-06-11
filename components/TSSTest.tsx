@@ -29,7 +29,7 @@ export function TTSTest() {
     setSuccess(null)
 
     try {
-      console.log("🧪 Testando Murf.ai TTS...")
+      console.log(" Testando Murf.ai TTS...")
 
       const response = await fetch("/api/tts", {
         method: "POST",
