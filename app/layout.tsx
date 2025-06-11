@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Converse naturalmente com IA usando sua voz. Powered by Google Gemini.",
   keywords: ["IA", "inteligência artificial", "voz", "conversa", "Gemini", "chat"],
     generator: 'Raziel'
-}
+} 
 
 export default function RootLayout({
   children,
