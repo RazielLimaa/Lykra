@@ -1,3 +1,5 @@
+"use client"
+
 import { GradientOrb } from "@/components/inicial-page/gradient-orb"
 import { WaveShape } from "@/components/inicial-page/wave-shape"
 import { ProjectSection } from "@/components/inicial-page/project-section"
@@ -101,11 +103,71 @@ export default function Home() {
       {/* Developer Section */}
       <DeveloperSection />
 
+      {/* Heart Button - Positioned after Developer Section */}
+      <div className="relative z-10 flex justify-center items-center py-16 mt-8">
+        <Link href="/explosion">
+          <div className="heart-button-wrapper">
+            <button className="heart-button flex justify-center items-center p-[20px] shadow-[0_-2px_6px_0_rgba(10,37,64,0.35)_inset] bg-[#e8e8e8] border-[#ffe2e2] border-solid border-[9px] rounded-[35px] transition-all duration-400 hover:bg-[#eee] hover:scale-105 hover:animate-moving-borders">
+              <svg
+                height={32}
+                width={32}
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="fill-[#ff6e6e] hover:animate-beating-heart"
+              >
+                <path d="M0 0H24V24H0z" fill="none" />
+                <path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z" />
+              </svg>
+            </button>
+          </div>
+        </Link>
+      </div>
+
       {/* Wave Shape Shadow at Bottom */}
       <WaveShape />
 
       {/* Subtle Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none opacity-20"></div>
+
+      <style jsx>{`
+        @keyframes movingBorders {
+          0% {
+            border-color: #fce4e4;
+          }
+          50% {
+            border-color: #ffd8d8;
+          }
+          90% {
+            border-color: #fce4e4;
+          }
+        }
+
+        @keyframes beatingHeart {
+          0% {
+            transform: scale(1);
+          }
+          15% {
+            transform: scale(1.15);
+          }
+          30% {
+            transform: scale(1);
+          }
+          45% {
+            transform: scale(1.15);
+          }
+          60% {
+            transform: scale(1);
+          }
+        }
+
+        .heart-button:hover {
+          animation: movingBorders 3s infinite;
+        }
+
+        .heart-button:hover svg {
+          animation: beatingHeart 1.2s infinite;
+        }
+      `}</style>
     </div>
   )
 }
